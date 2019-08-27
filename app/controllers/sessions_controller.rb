@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+  include CurrentUserConcern
 
   def create
     user = User
@@ -35,7 +35,7 @@ class SessionsController < ApplicationController
   end
 
   def logout
-    reset_session
+    session[:user_id] = nil
     render json: { status: 200, logged_out: true}
   end
 
