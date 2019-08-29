@@ -18,7 +18,10 @@ Things you may want to cover:
 * Database initialization
     heroku create heroku_app_name
     heroku run rails db:migrate
-    heroku pg:reset
+* Toggle the admin for a user in heroku
+    heroku run rails console
+    user.toggle!(:admin)
+
 * How to run the test suite
 
 * Services (job queues, cache servers, search engines, etc.)
