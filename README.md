@@ -17,7 +17,7 @@ Things you may want to cover:
     rails db:migrate
 * Database initialization
     heroku create heroku_app_name
-    heroku pg:push local_db_name heroku_db_name
+    heroku run rails db:migrate
     heroku pg:reset
 * How to run the test suite
 
