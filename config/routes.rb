@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :photos
+  resources :likes
   resources :users
   resources :sessions, only: [:create]
   delete :logout, to: "sessions#logout"

@@ -2,11 +2,11 @@ class PhotosController < ApplicationController
 
 
   def index
-    render json: Photo.all.as_json(include: [:user])
+    render json: Photo.all.as_json(include: [:user, :likes])
   end
 
   def show
-    render json: Photo.find(params[:id]).as_json(include: [:user])
+    render json: Photo.find(params[:id]).as_json(include: [:user, :likes])
   end
 
   def update

@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
 
   def index
-    render json: User.all.as_json(include: [:photos])
+    render json: User.all.as_json(include: [:photos, :likes])
   end
 
   def show
-    render json: User.find(params[:id]).as_json(include: [:photos])
+    render json: User.find(params[:id]).as_json(include: [:photos, :likes])
   end
 
   def update
