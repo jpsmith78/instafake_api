@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   def index
-    render json: Comment.all
+    render json: Comment.all.as_json(include: [:user])
   end
 
   def create
@@ -11,6 +11,12 @@ class CommentsController < ApplicationController
     else
       render json: { :errors => @comment.errors.full_messages }
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    render json: {status: "destroyed comment"}
   end
 
   private

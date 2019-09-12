@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
 
 
   def index
-    render json: Photo.all.as_json(include: [:user, :likes])
+    render json: Photo.all.as_json(include: [:user, :likes, :comments=>{include: [:user]}])
   end
 
   def show

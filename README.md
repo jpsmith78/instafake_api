@@ -12,6 +12,7 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
+    postgres -D /usr/local/var/postgres/
     rails generate migration create_photos
     rails generate migration create_users
     rails db:migrate
