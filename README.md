@@ -10,7 +10,7 @@ Things you may want to cover:
 * System dependencies
     bcrypt, rack-cors
 * Configuration
-
+    added cors and session_store to config/initializers
 * Database creation
     postgres -D /usr/local/var/postgres/
     rails generate migration create_photos
