@@ -4,6 +4,19 @@ class CommentsController < ApplicationController
     render json: Comment.all.as_json(include: [:user])
   end
 
+  def show
+    render json: Comment.find(params[:id]).as_json(include: [:user])
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    if @comment.update(comment_params)
+      render json: @comment
+    else
+      render json: { :errors => @comment.errors.full_messages }
+    end
+  end
+
   def create
     @comment = Comment.new(comment_params)
     if @comment.save

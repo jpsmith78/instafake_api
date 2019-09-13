@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
 
 
   def index
-    render json: Photo.all.as_json(include: [:user, :likes, :comments=>{include: [:user]}])
+    render json: Photo.all.as_json(include: [:user, :likes=>{include: [:user]}, :comments=>{include: [:user]}])
   end
 
   def show
@@ -16,7 +16,6 @@ class PhotosController < ApplicationController
     else
       render json: { :errors => @photo.errors.full_messages }
     end
-
   end
 
   def create
