@@ -22,7 +22,7 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     @photo.user = User.find(session[:user_id])
     if @photo.save
-      render json: @photo
+      render json: { create: "photo  created"}
     else
       render json: { :errors => @photo.errors.full_messages }
     end
@@ -31,7 +31,7 @@ class PhotosController < ApplicationController
   def destroy
     @photo = Photo.find(params[:id])
     @photo.destroy
-    render json: {success: "Photo successfully deleted"}
+    render json: {delete: "Photo successfully deleted"}
   end
 
 

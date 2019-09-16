@@ -19,7 +19,7 @@ class LikesController < ApplicationController
   def destroy
     @like = Like.find(params[:id])
     @like.destroy
-    render json: {status: "destroyed like"}
+    render json: {delete: "You have unliked this"}
   end
 
 
