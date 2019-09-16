@@ -31,7 +31,7 @@ class PhotosController < ApplicationController
   def destroy
     @photo = Photo.find(params[:id])
     @photo.destroy
-    render json: {status: "destroyed #{@photo.title}"}
+    render json: {success: "Photo successfully deleted"}
   end
 
 
