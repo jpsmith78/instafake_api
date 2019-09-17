@@ -8,9 +8,9 @@ class LikesController < ApplicationController
     @like = Like.new(like_params)
 
     if already_liked?
-      render json: { :warning => "You've already liked this" }
+      render json: { errors: "You've already liked this" }
     elsif @like.save
-      render json: @like
+      render json: { create: "You have liked this" }
     else
       render json: { :errors => @like.errors.full_messages }
     end

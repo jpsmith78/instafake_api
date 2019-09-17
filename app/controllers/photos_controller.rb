@@ -12,7 +12,7 @@ class PhotosController < ApplicationController
   def update
     @photo = Photo.find(params[:id])
     if @photo.update(photo_params)
-      render json: @photo
+      render json: { update: "Photo successfully updated"}
     else
       render json: { :errors => @photo.errors.full_messages }
     end
@@ -22,7 +22,7 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     @photo.user = User.find(session[:user_id])
     if @photo.save
-      render json: { create: "photo  created"}
+      render json: { create: "photo successfully created"}
     else
       render json: { :errors => @photo.errors.full_messages }
     end
