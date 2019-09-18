@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    render json: User.all.as_json(include: [:likes, :photos=>{include: [:likes]}])
+    render json: User.all.order("id DESC").as_json(include: [:likes, :photos=>{include: [:likes]}])
   end
 
   def show
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      render json: @user
+      render json: { update: @user.username + " successfully updated"}
     else
       render json: { :errors => @user.errors.full_messages}
     end
