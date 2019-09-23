@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_many :photos, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
-
+  has_many :comment_likes, dependent: :destroy
   before_save { self.email = email.downcase}
 
   validates :username, presence: true,

@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
 
 
   def index
-    render json: Photo.all.order("photos.id DESC").includes(:comments).order('comments.id ASC').as_json(include: [:user, :likes=>{include: [:user]}, :comments=>{include: [:user]}])
+    render json: Photo.all.order("photos.id DESC").includes(:comments).order('comments.id ASC').as_json(include: [:user, :likes=>{include: [:user]}, :comments=>{include: [:user, :comment_likes=>{include: [:user]}]}])
   end
 
   def show

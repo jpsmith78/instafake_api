@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   def index
-    render json: Comment.all.order("id DESC").as_json(include: [:user])
+    render json: Comment.all.order("id DESC").as_json(include: [:user, :comment_likes])
   end
 
   def show
